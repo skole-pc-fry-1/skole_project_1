@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="w3.css">
+    <style>
+        body {
+            margin: 0;
+            font-size: 28px;
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: lightgray;
+        }
+
+        .header {
+            background-color: gray;
+            padding: 30px;
+            text-align: center;
+        }
+
+        #navbar {
+            overflow: hidden;
+            background-color: gray;
+        }
+
+        #navbar a {
+            float: left;
+            display: block;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 17px;
+        }
+
+        #navbar a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        .content {
+            padding: 16px;
+        }
+
+        .sticky {
+            position: fixed;
+            top: 0;
+            width: 100%;
+        }
+
+        .sticky+.content {
+            padding-top: 60px;
+        }
+
+        #imageModal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+        }
+
+        #modalContent {
+            max-width: auto;
+            max-height: auto;
+        }
+
+        #modalContent img {
+            width: 90%;
+            height: 90%;
+            object-fit: contain;
+        }
+
+
+        .Tab {
+            word-wrap: normal;
+        }
+
+        .center-content {
+            text-align: center;
+        }
+
+        .center-content p {
+            width: 90%;
+            margin: 0 auto;
+        }
+
+        .bottom-fixed {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .grid-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: stretch;
+            padding: 10px;
+            min-height: auto;
+        }
+
+        .grid-item {
+            flex: 1 0 calc(33% - 15px);
+            margin: 10px;
+            background-color: rgba(225, 245, 205, 0.8);
+            text-align: center;
+            padding: 20px 0;
+            font-size: 40px;
+            border-radius: 15px;
+            height: inherit;
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+    <div id="navbar">
+        <a onclick="OpenTab('hvem er vi')">Hvem er vi</a>
+        <a onclick="OpenTab('Lejrskole')">Lejrskole</a>
+        <a onclick="OpenTab('Klub')">Klub</a>
+        <a onclick="OpenTab('Et anderledes år')">Et anderledes år</a>
+        <a onclick="OpenTab('Skoledagen samt undervisning')">Skoledagen samt undervisning</a>
+        <a onclick="OpenTab('Fotos Fra 10 klasse')">Fotos Fra 10 klasse</a>
+        <a onclick="OpenTab('Tidligere Elever')">Tidligere Elever</a>
+    </div>
+
+    <div class="content">
+
+        <center>
+            <h1>10. Klasse</h1><hr>
+
+            <div id="hvem er vi" class="Tab">
+                <h2>Hvem er vi</h2>
+                <p style="font-size: large; width: 90%;">
+                    Frydenhøjskolens 10. klasse er et tilbud til unge med autisme og andre
+                    følgediagnoser.<br><br>
+                    Frydenhøjskolens 10. klasse ligger i pavillonen ved siden af frydenhøj KLUB. Her har vi
+                    god plads, ro og mulighed for at skabedet, vi gerne vil sammen. Hos os er der plads til
+                    alle. Vi forsøger at tilpasse din skoletid efter dine ønsker og behov. Vi vil sammen med
+                    dig lægge en plan for dit skoleår. Ud fra om du ønsker at afslutte med en eksamen eller
+                    flere, eller om du ønsker fokus på andre personlige eller sociale mål.
+                </p>
+            </div>
+
+            <div id="Lejrskole" class="Tab" style="display:none;">
+                <h2>Lejrskole</h2>
+                <p style="font-size: large; padding: 10px;">i September måned tager vi på
+                    en 5 dags lejrskole til bornholm. Her bor du i små rækkehuse med 1-2 klassekammerater,
+                    hvor i selv skal sørge for morgenmad og frokost. Aftensmaden spiser vi sammen, og vi er
+                    heldige at have en køkkendame, som laver mad til os. Vores lejreskole indeholder både
+                    udflugter, hviledage og sociale aktiviteter i det omfang man kan.</p>
+            </div>
+
+            <div id="Klub" class="Tab" style="display:none;">
+                <h2>Klub</h2>
+                <p style="font-size: large; padding: 10px;">Nogle dage er der mulighed
+                    for at blive hængende efter skole og hygge sig med de andre elever.<br><br>
+                    Mandag til Torsdag kl. 17.30 - 21.30 er der mulighed for at komme i aftenklub sammen med
+                    sin klassekammerater og de andre unge i frydenhøj KLUB. På udvalgte dage, 1-2 gange om
+                    måmeden, vil der være en pædagog med fra klassen
+                </p>
+            </div>
+
+            <div id="Et anderledes år" class="Tab" style="display:none">
+                <h2>Et anderledes år</h2>
+                <p style="font-size: large; padding: 10px;">
+                    Vi tilbyder et 10. skoleår, som bliver tilrettelagt ud fra dine ønsker. Du har mulighed
+                    for at afslutte med FP9 eller FP10 i dansk, matematik og engelsk.
+                    <br><br>
+                    Hvis du hellere vil bruge skoleåret på at blive afklaret i forhold til din fremtidlige
+                    uddannelse, så besøger vi sammen de forskellige skoler, uddannelsessteder og
+                    virksomheder. Derudover er der mulighed for at komme i skolepraktik eller brobygning på
+                    de uddannelser og skoler, som du synes er spændende, og i præcis det omfang der passer
+                    dig.
+                    <br><br>
+                    Der er også mulighed for at komme i erhvervspraktik indenfor de områder og fag, du
+                    finder interessant. Vi har et godt netværk af virksomheder, med dygtige mennesker, der
+                    glæder sig til at modtage nye praktikanter.
+                </p>
+            </div>
+
+            <div id="Skoledagen samt undervisning" class="Tab" style="display:none">
+                <h2>Skoledagen samt undervisning</h2>
+                <p style="font-size: large; padding: 10px;">
+                    Skoledagen begynder kl. 8.30, men der er
+                    allerede mulighed for at komme fra kl. 8, hvor
+                    man kan få sog en kop te og lidt morgenmad.
+                    herefter er der undervisning til kl. 14.00 og
+                    fredag til 11.45.
+                    <br><br>
+                    Du skal have undervisning i dansk, matematik
+                    og engelsk. Der vil være mulighed for at vælge
+                    tysk og fransk. Dette vil foregå på
+                    frydenhøjskolen sammen med en 9. Klasse
+                    Derudover har vi valgfag, som indeholder
+                    idræt. madkundskab og livsduelighed mm.
+                    <br><br>
+                    livsduelighed er med fokus på at være ung,
+                    det ansvar og de forpligtelser, der følger med.
+                    Vi arbejder eksempelvis med, hvordan man
+                    finder et fritidsarbejde, hvordan man får en
+                    bolig, og når man engang skal flytte
+                    hjemmefra. hvad koster det, og hvordan får
+                    man råd til det hele? Vi arbejder også med
+                    focus på de sociale spilleregler såsom
+                    bekendtskaber, venskaber, kærester,
+                    værtskab osv.
+                </p>
+            </div>
+
+            <div id="Fotos Fra 10 klasse" class="Tab" style="display:none">
+                <h2>Fotos Fra 10 Klasse</h2>
+                <div id="imageModal">
+                    <div id="modalContent">
+                        <span onclick="closeModal()"
+                            style="position: absolute; top: 15px; right: 15px; cursor: pointer; font-size: 40px; color: white;">&times;</span>
+                        <img id="modalImage" src="" alt="Modal Image">
+                    </div>
+                </div>
+
+                <img src="billeder/Billede1.jpg" style="width: 350px; border-radius: 5px;" alt=""
+                    onclick="openModal('billeder/Billede1.jpg')">
+                <img src="billeder/Billede2.jpg" style="width: 350px; border-radius: 5px;" alt=""
+                    onclick="openModal('billeder/Billede2.jpg')">
+                <img src="billeder/Billede3.jpg" style="width: 350px; border-radius: 5px;" alt=""
+                    onclick="openModal('billeder/Billede3.jpg')">
+            </div>
+
+            <div id="Tidligere Elever" class="Tab" style="display:none">
+
+                <h2>Tidligere elever</h2>
+
+                <div class="grid-container">
+
+                        <div class="grid-item" style="border: 1px solid black; margin: 10px; border-radius: 15px; margin-bottom: 5px;">
+                            <br>
+                            <p style="font-size: medium; padding: 5px; margin-top: -40px;">"Man kan få indflydelse på sin 10. klasse. Selv være med til at bestemme målet"</p>
+                            <h5>Max 16 år.</h5>
+                        </div>
+
+                        <div class="grid-item" style="border: 1px solid black; margin: 10px; border-radius: 15px; margin-bottom: 5px;">
+                            <br>
+                            <p style="font-size: medium; padding: 5px; margin-top: -40px;">"Rart at gå i 10. klasse efter et presset 9. klasses år med konstante prøver"</p>
+                            <h5>Sofia 16 år.</h5>
+                        </div>
+
+                        <div class="grid-item" style="border: 1px solid black; margin: 10px; border-radius: 15px; margin-bottom: 5px;">
+                            <br>
+                            <p style="font-size: medium; padding: 5px; margin-top: -40px;">"10. klasse hjalp mig til at finde ud af, hvad jeg ville bagefter"</p>
+                            <h5>Tomas 17 år.</h5>
+                        </div>
+
+                        <div class="grid-item" style="border: 1px solid black; margin: 10px; border-radius: 15px; margin-bottom: 5px;">
+                            <br>
+                            <p style="font-size: medium; padding: 5px; margin-top: -40px;">"Det var fedt at være på Lejrskole"
+                            </p>
+                            <h5>Adrian 17 år.</h5>
+                        </div>
+
+                        <div class="grid-item" style="border: 1px solid black; margin: 10px; border-radius: 15px; margin-bottom: 5px;">
+                            <br>
+                            <p style="font-size: medium; padding: 5px; margin-top: -40px;">"Du kan vælge at tage eksamen, eller lade være, alt efter hvad du vil bruge dit år på"</p>
+                            <h5>Rasmus 16 år.</h5>
+                        </div>
+
+                        <div class="grid-item" style="border: 1px solid black; margin: 10px; border-radius: 15px; margin-bottom: 5px;">
+                            <br>
+                            <p style="font-size: medium; padding: 5px; margin-top: -40px;">"Der er mulighed for at holde pause indenfor og udenfor. Du har dit bordtennisbord indenfor, og masser af plads udenfor"</p>
+                            <h5>Max 16 år.</h5>
+                            <h6 style="font-size: small; text-align: left; margin-top: -10px;">**bordtennisbord har vi ikke mere**</h6>
+                        </div>
+
+
+
+                </div>
+
+            </div>
+
+        </center>
+
+        <div class="bottom-fixed">
+            <h4>
+                Frydenhøjskolen 10KA "Pavillonen"<br>
+                Bødkerporten 4 2650 Hvidovre +45 61 97 16 60
+            </h4>
+        </div>
+    
+    </div>
+
+    <script>
+        function OpenTab(TabName) {
+            var i;
+            var x = document.getElementsByClassName("Tab");
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+            }
+            document.getElementById(TabName).style.display = "block";
+        }
+
+
+
+        function openModal(imageSrc) {
+            // Set the modal image source
+            document.getElementById('modalImage').src = imageSrc;
+
+            // Show the modal
+            document.getElementById('imageModal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            // Hide the modal
+            document.getElementById('imageModal').style.display = 'none';
+        }
+
+
+        window.onscroll = function () { myFunction() };
+
+        var navbar = document.getElementById("navbar");
+        var sticky = navbar.offsetTop;
+
+        function myFunction() {
+            if (window.pageYOffset >= sticky) {
+                navbar.classList.add("sticky")
+            } else {
+                navbar.classList.remove("sticky");
+            }
+        }
+    </script>
+</body>
+
+</html>
